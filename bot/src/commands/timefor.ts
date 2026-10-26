@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import { notAMember } from "../views/errors";
 import { client } from "database";
@@ -18,7 +18,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the member.
     const user = interaction.options.getUser("user")!;
     const member = interaction.options.getMember("user");

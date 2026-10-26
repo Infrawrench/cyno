@@ -7,14 +7,29 @@
         "database",
         "site"
     ],
+    "engines": {
+        "node": ">=24"
+    },
     "devDependencies": {
         "foreman": "^3.0.1",
-        "prettier": "^3.2.5",
-        "husky": "^9.0.11",
-        "dotenv-cli": "^7.4.1",
-        "concurrently": "^8.2.2",
-        "@types/bun": "^1.0.12",
-        "tsx": "^4.9.0"
+        "prettier": "^3.9.10",
+        "husky": "^9.1.7",
+        "dotenv-cli": "^11.0.0",
+        "concurrently": "^10.0.6",
+        "@types/bun": "^1.4.4",
+        "@types/node": "^24.19.2",
+        "tsx": "^4.23.15",
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1"
+    },
+    "overrides": {
+        "effect": "^3.22.4"
+    },
+    "allowScripts": {
+        "better-sqlite3": true,
+        "esbuild": true,
+        "msgpackr-extract": true,
+        "unrs-resolver": true
     },
     "scripts": {
         "prepare": "husky || true",

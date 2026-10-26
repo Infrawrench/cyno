@@ -29,7 +29,7 @@ export default function TextInput(props: Props) {
                     constructValidator(props.validator).parse(e.target.value);
                 setAlert(null);
             } catch (e) {
-                setAlert((e as ZodError).errors[0].message);
+                setAlert((e as ZodError).issues[0].message);
                 return;
             }
 

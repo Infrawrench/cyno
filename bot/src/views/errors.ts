@@ -1,8 +1,8 @@
-import { CommandInteraction } from "discord.js";
+import { ChatInputCommandInteraction } from "discord.js";
 import error from "./layouts/error";
 
 export const insufficientFunds = (
-    interaction: CommandInteraction,
+    interaction: ChatInputCommandInteraction,
     amount: number,
     emoji: string,
 ) =>
@@ -12,14 +12,16 @@ export const insufficientFunds = (
         `You need at least ${amount} ${emoji} to continue with this transaction.`,
     );
 
-export const notAMember = (interaction: CommandInteraction) =>
+export const notAMember = (interaction: ChatInputCommandInteraction) =>
     error(
         interaction,
         "Not a Member",
         "The user you specified is not a member of this server!",
     );
 
-export const financialActionToSelf = (interaction: CommandInteraction) =>
+export const financialActionToSelf = (
+    interaction: ChatInputCommandInteraction,
+) =>
     error(
         interaction,
         "Financial Action to Self",

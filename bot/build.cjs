@@ -9,7 +9,7 @@ const build = (exports.build = () =>
         minify: true,
         outfile: "./dist/bundle.cjs",
         sourcemap: true,
-        target: "node18",
+        target: "node24",
         platform: "node",
         external: [
             "better-sqlite3",

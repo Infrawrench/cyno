@@ -1,8 +1,8 @@
-import type { CommandInteraction } from "discord.js";
+import type { ChatInputCommandInteraction } from "discord.js";
 
 export const description = "Allows you to ping the bot.";
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Wait for a response from Discord.
     const t1 = Date.now();
     await interaction.deferReply();

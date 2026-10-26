@@ -3,7 +3,7 @@ import {
     type APIApplicationCommandBasicOption,
     type AutocompleteFocusedOption,
     type ApplicationCommandOptionChoiceData,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import error from "../views/layouts/error";
 import take from "../queries/financial/take";
@@ -11,7 +11,7 @@ import { insufficientFunds } from "../views/errors";
 import { getGuild } from "../queries/guild";
 import { client, shares } from "database";
 import success from "../views/layouts/success";
-import yahooFinance from "yahoo-finance2";
+import yahooFinance from "../utils/yahooFinance";
 
 export const description = "Allows you to invest your currency in a stock.";
 
@@ -41,21 +41,19 @@ export const autocompleteHandler = async (
     // Get the quotes.
     const q = interaction.value as string;
     if (q === "") return [];
-    let quotes = (await yahooFinance.search(q)).quotes;
+    const quotes = (await yahooFinance.search(q)).quotes;
 
-    // Make sure we only have a maximum of 25 quotes.
-    quotes = quotes
+    // Make sure we only have a maximum of 25 Yahoo Finance quotes.
+    return quotes
         .slice(0, 25)
-        .filter((quote) => quote.symbol && quote.shortname);
-
-    // Return the choices.
-    return quotes.map((quote) => ({
-        name: quote.shortname,
-        value: quote.symbol,
-    }));
+        .flatMap((quote) =>
+            quote.isYahooFinance && quote.symbol && quote.shortname
+                ? [{ name: quote.shortname, value: quote.symbol }]
+                : [],
+        );
 };
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the stock.
     const stock = await yahooFinance.quote(
         interaction.options.get("stock_symbol")!.value as string,

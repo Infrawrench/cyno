@@ -5,11 +5,11 @@ import GuildSidebar from "@/components/atoms/GuildSidebar";
 import Loading from "@/components/atoms/Loading";
 import getGuild from "@/components/server/cached/getGuild";
 
-type Props = React.PropsWithChildren<{ params: { guildId: string } }>;
+type Props = React.PropsWithChildren<{ params: Promise<{ guildId: string }> }>;
 
 async function GuildLayout({ params, children }: Props) {
     // Get the guild.
-    const guild = await getGuild(params.guildId);
+    const guild = await getGuild((await params).guildId);
     if (!guild) return redirect("/");
 
     // Return the layout which the configuration gets rendered into.
@@ -41,11 +41,11 @@ async function GuildLayout({ params, children }: Props) {
             <hr className="my-4 border-gray-200 dark:border-gray-800" />
 
             <div className="flex max-sm:flex-wrap">
-                <div className="flex-col sm:flex-grow-0 sm:w-auto w-full">
+                <div className="flex-col sm:grow-0 sm:w-auto w-full">
                     <GuildSidebar guildId={guild.id} />
                 </div>
 
-                <div className="flex-col flex-grow">
+                <div className="flex-col grow">
                     <div className="relative">{children}</div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import type { CommandInteraction } from "discord.js";
+import type { ChatInputCommandInteraction } from "discord.js";
 import { client } from "database";
 import { getGuild } from "../queries/guild";
 import { levelToXp } from "../utils/tasoAlgo";
@@ -8,7 +8,7 @@ export const description = "Get you (or the user you specify)'s current XP.";
 const UNICODE_RED_BLOCK = "🟥";
 const UNICODE_GREEN_BLOCK = "🟩";
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the user.
     const user = interaction.options.getUser("user") ?? interaction.user;
 

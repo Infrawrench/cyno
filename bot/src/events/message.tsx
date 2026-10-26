@@ -117,6 +117,7 @@ async function handleLevelUp(
 
     // Check if we should DM this message.
     const channel = guild.levelUpDM ? message.author : message.channel;
+    if (!("send" in channel)) return;
 
     // Check if the user wants no pings.
     const nickname = message.member?.nickname;

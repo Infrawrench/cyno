@@ -2,7 +2,7 @@ import { client, transactions, wallet } from "database";
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
     type PermissionResolvable,
 } from "discord.js";
 import { and, eq, sql } from "drizzle-orm";
@@ -32,7 +32,7 @@ export const defaultPermissions: PermissionResolvable = [
     "ManageMessages",
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the source and target users.
     const source = interaction.options.getUser("source", true);
     const target = interaction.options.getUser("target", true);

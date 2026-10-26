@@ -1,9 +1,9 @@
 import { Embed } from "react-djs";
 import { renderManager } from "../../state";
-import type { CommandInteraction } from "discord.js";
+import type { ChatInputCommandInteraction } from "discord.js";
 
 export default (
-    interaction: CommandInteraction,
+    interaction: ChatInputCommandInteraction,
     reason: string,
     description: string,
 ) => {

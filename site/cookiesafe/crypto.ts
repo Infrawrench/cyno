@@ -1,4 +1,14 @@
-import { toBase64, toBytes } from "fast-base64";
+// Base64 encode a uint8 array.
+function toBase64(bytes: Uint8Array) {
+    let binary = "";
+    for (const byte of bytes) binary += String.fromCharCode(byte);
+    return btoa(binary);
+}
+
+// Base64 decode a string into a uint8 array.
+function toBytes(data: string) {
+    return Uint8Array.from(atob(data), (c) => c.charCodeAt(0));
+}
 
 // Concat 2 uint8 arrays.
 function concat(a: Uint8Array, b: Uint8Array) {
@@ -52,7 +62,7 @@ export async function decrypt(key: string, data: string) {
     const keyHash = await crypto.subtle.digest("SHA-256", keyBytes);
 
     // Base64 decode the data.
-    const buffer = await toBytes(data);
+    const buffer = toBytes(data);
     const iv = buffer.slice(0, 16);
     const encrypted = buffer.slice(16);
 
@@ -83,5 +93,5 @@ export async function sign(key: string, cookieName: string, data: string) {
     const hash = await crypto.subtle.digest("SHA-256", keyBytes);
 
     // Return the hash base64 encoded plus a period and the data.
-    return (await toBase64(new Uint8Array(hash))) + "." + data;
+    return toBase64(new Uint8Array(hash)) + "." + data;
 }

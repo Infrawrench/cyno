@@ -10,25 +10,24 @@
         "tsc": "tsc --noEmit"
     },
     "devDependencies": {
-        "@types/better-sqlite3": "^7.6.9",
-        "@types/react": "^18.2.66",
-        "esbuild": "^0.20.2",
-        "typescript": "^5.2.2"
+        "@types/better-sqlite3": "^9.6.0",
+        "@types/react": "^18.3.31",
+        "esbuild": "^0.28.2",
+        "typescript": "~6.0.3"
     },
     "dependencies": {
-        "color-parse": "^2.0.0",
+        "color-parse": "^2.2.0",
         "database": "*",
-        "discord.js": "^14.14.1",
-        "drizzle-orm": "^0.30.4",
-        "pureimage": "^0.4.13",
-        "react": "^18.2.0",
+        "discord.js": "^14.27.0",
+        "drizzle-orm": "^0.45.4",
+        "pureimage": "^0.4.20",
+        "react": "^18.3.1",
         "react-djs": "1.0.0",
-        "yahoo-finance2": "^2.9.0",
-        "zod": "^3.22.4",
-        "@discordjs/core": "^1.1.1",
-        "@sentry/node": "^7.109.0"
+        "yahoo-finance2": "^4.0.5",
+        "@discordjs/core": "^2.6.0",
+        "@sentry/node": "^11.9.0"
     },
     "optionalDependencies": {
-        "@libsql/linux-x64-gnu": "^0.2.0-pre.7"
+        "@libsql/linux-x64-gnu": "^0.5.29"
     }
 }

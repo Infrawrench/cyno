@@ -1,4 +1,4 @@
-import type { CommandInteraction } from "discord.js";
+import type { ChatInputCommandInteraction } from "discord.js";
 import { client, timelyCollections } from "database";
 import error from "../views/layouts/error";
 import add from "../queries/financial/add";
@@ -8,7 +8,7 @@ import success from "../views/layouts/success";
 export const description =
     "Used to claim your free currency in a guild if enabled.";
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the timely config.
     const gid = BigInt(interaction.guildId!);
     const guildTimelyConfig = await client.query.guildTimelyConfig

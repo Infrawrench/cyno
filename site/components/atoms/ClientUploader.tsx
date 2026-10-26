@@ -25,7 +25,7 @@ export default function ClientUploader({ value, onChange, endpoint }: Props) {
                 <UploadButton
                     endpoint={endpoint}
                     onClientUploadComplete={(res) => {
-                        onChange(res[0].url);
+                        onChange(res[0].ufsUrl);
                     }}
                 />
             </div>

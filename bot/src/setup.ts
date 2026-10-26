@@ -4,6 +4,7 @@ import {
     REST,
     PermissionsBitField,
     Client,
+    Events,
     type APIApplicationCommandSubcommandOption,
     type AutocompleteInteraction,
 } from "discord.js";
@@ -110,10 +111,10 @@ export default () => {
     }
 
     // Add Discord events.
-    client.on("messageCreate", message);
-    client.on("ready", ready);
-    client.on("guildCreate", guildCreate);
-    client.on("guildDelete", guildDelete);
+    client.on(Events.MessageCreate, message);
+    client.on(Events.ClientReady, ready);
+    client.on(Events.GuildCreate, guildCreate);
+    client.on(Events.GuildDelete, guildDelete);
 
     // Setup react-djs.
     setupReactDjs();
@@ -148,10 +149,10 @@ export default () => {
     };
 
     // Defines the interaction handler.
-    client.on("interactionCreate", async (interaction) => {
+    client.on(Events.InteractionCreate, async (interaction) => {
         if (interaction.isAutocomplete())
             return autocompleteHandler(interaction);
-        if (!interaction.isCommand()) return;
+        if (!interaction.isChatInputCommand()) return;
 
         let command = (commands as Record<string, Command | undefined>)[
             interaction.commandName
@@ -163,7 +164,6 @@ export default () => {
 
         // Handle sub-commands.
         if ("subcommands" in command) {
-            if (!interaction.isChatInputCommand()) return;
             const subcommand =
                 command.subcommands[interaction.options.getSubcommand()];
             if (!subcommand) {

@@ -1,4 +1,8 @@
-import { CommandInteraction, PermissionResolvable } from "discord.js";
+import {
+    MessageFlags,
+    type ChatInputCommandInteraction,
+    type PermissionResolvable,
+} from "discord.js";
 import takeout from "database/takeout";
 import { client, lastGuildTakeout } from "database";
 
@@ -10,7 +14,7 @@ export const defaultPermissions: PermissionResolvable = [
     "ManageGuild",
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the guild ID.
     const gid = BigInt(interaction.guildId!);
 
@@ -30,13 +34,13 @@ export async function run(interaction: CommandInteraction) {
             return interaction.reply({
                 content:
                     "You can only take a database takeout once every 24 hours.",
-                ephemeral: true,
+                flags: MessageFlags.Ephemeral,
             });
         }
     }
 
     // Send the thinking message.
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
     // Run a takeout.
     const buf = await takeout(gid);

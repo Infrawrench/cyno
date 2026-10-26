@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
     type PermissionResolvable,
 } from "discord.js";
 import error from "../views/layouts/error";
@@ -32,14 +32,17 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-const notAValidDatabase = (interaction: CommandInteraction) =>
+const notAValidDatabase = (interaction: ChatInputCommandInteraction) =>
     error(
         interaction,
         "Not a Valid Database",
         "The attachment provided is not a valid database.",
     );
 
-async function handleImport(interaction: CommandInteraction, tempFile: string) {
+async function handleImport(
+    interaction: ChatInputCommandInteraction,
+    tempFile: string,
+) {
     // Try opening the database.
     let sqliteDb;
     try {
@@ -140,7 +143,7 @@ async function handleImport(interaction: CommandInteraction, tempFile: string) {
     }
 }
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the attachment.
     const attachment = interaction.options.get("database", true).attachment!;
     if (attachment.contentType) return notAValidDatabase(interaction);

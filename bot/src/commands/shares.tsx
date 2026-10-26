@@ -1,7 +1,7 @@
-import { CommandInteraction } from "discord.js";
+import { ChatInputCommandInteraction } from "discord.js";
 import { useState } from "react";
 import { Button, Embed } from "react-djs";
-import yahooFinance from "yahoo-finance2";
+import yahooFinance from "../utils/yahooFinance";
 import { client, shares } from "database";
 import { getGuild } from "../queries/guild";
 import { renderManager } from "../state";
@@ -95,8 +95,7 @@ type SharedProps = {
 };
 
 type ViewState =
-    | { shares: DisplayedShares }
-    | { share: ShareValue; pageNumber: number };
+    { shares: DisplayedShares } | { share: ShareValue; pageNumber: number };
 
 type PageProps = SharedProps & {
     displayedShares: DisplayedShares;
@@ -264,7 +263,7 @@ const Router = ({ uid, gid, emoji, initialPage }: Props) => {
     );
 };
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the interaction information.
     const gid = BigInt(interaction.guildId!);
     const uid = BigInt(interaction.user.id);

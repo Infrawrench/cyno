@@ -1,6 +1,6 @@
 import { getEncryptedCookie } from "@/cookiesafe";
 
-export default async function () {
+export default async function getDiscordToken() {
     // Get the encrypted token from the cookies.
     const encodedToken = await getEncryptedCookie("encrypted_token");
     if (!encodedToken) return null;

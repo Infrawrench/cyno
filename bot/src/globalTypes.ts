@@ -2,7 +2,7 @@ import type {
     APIApplicationCommandBasicOption,
     ApplicationCommandOptionChoiceData,
     AutocompleteFocusedOption,
-    CommandInteraction,
+    ChatInputCommandInteraction,
     PermissionResolvable,
 } from "discord.js";
 
@@ -12,7 +12,7 @@ export type RootCommand = {
     autocompleteHandler?: (
         interaction: AutocompleteFocusedOption,
     ) => Promise<ApplicationCommandOptionChoiceData[]>;
-    run: (interaction: CommandInteraction) => Promise<any>;
+    run: (interaction: ChatInputCommandInteraction) => Promise<any>;
 };
 
 export type ParentCommand = {

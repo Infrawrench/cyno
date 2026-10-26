@@ -1,4 +1,3 @@
 database/drizzle
 site/.next
 dist
-scripts/k8s.template.yml

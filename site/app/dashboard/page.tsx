@@ -4,7 +4,6 @@ import Loading from "@/components/atoms/Loading";
 import KillLogin from "@/components/atoms/KillLogin";
 import GuildCards from "@/components/atoms/GuildCards";
 import { client } from "database";
-import type { User } from "@/utils/getDiscordUser";
 import getUser from "@/components/server/cached/getUser";
 import inviteUrl from "@/utils/inviteUrl";
 import adminUsers from "@/utils/adminUsers";
@@ -46,14 +45,12 @@ async function Guilds() {
         }
     }
 
-    // Cache the user when checking the database.
-    let userCached: User | null = null;
+    // Get the user when checking the database. getUser is cached per request.
     const magicThrowObj = {};
     const getUserFromVar = async () => {
-        if (userCached) return userCached;
-        userCached = await getUser();
-        if (!userCached) throw magicThrowObj;
-        return userCached;
+        const user = await getUser();
+        if (!user) throw magicThrowObj;
+        return user;
     };
     const isAdmin = async (guildId: bigint) => {
         const uid = (await getUserFromVar()).id;

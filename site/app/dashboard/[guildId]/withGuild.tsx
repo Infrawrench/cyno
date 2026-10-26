@@ -32,8 +32,9 @@ export default function withGuild(
     return async function GuildParamWrapper({
         params,
     }: {
-        params: { guildId: string };
+        params: Promise<{ guildId: string }>;
     }) {
-        return <GuildProvider guildId={params.guildId} component={component} />;
+        const { guildId } = await params;
+        return <GuildProvider guildId={guildId} component={component} />;
     };
 }

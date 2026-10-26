@@ -9,8 +9,6 @@ export const metadata = {
     description: "Cyno is a Discord bot to add some fun into your server!",
 };
 
-export const runtime = process.env.NODE_RUNTIME === "1" ? "nodejs" : "edge";
-
 export default function RootLayout({ children }: React.PropsWithChildren<{}>) {
     return (
         <html lang="en">

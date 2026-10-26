@@ -1,4 +1,4 @@
-import type { CommandInteraction } from "discord.js";
+import type { ChatInputCommandInteraction } from "discord.js";
 import { client } from "database";
 import { renderManager } from "../state";
 import { getGuild } from "../queries/guild";
@@ -6,7 +6,7 @@ import Balance from "./shared/Balance";
 
 export const description = "Get your current balance and transactions.";
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     const guild = await getGuild(BigInt(interaction.guildId!));
 
     const wallet = await client.query.wallet

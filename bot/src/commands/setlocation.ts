@@ -3,7 +3,7 @@ import {
     type APIApplicationCommandBasicOption,
     type ApplicationCommandOptionChoiceData,
     type AutocompleteFocusedOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import { readdir, stat } from "fs/promises";
 import { client, timeLocation } from "database";
@@ -83,7 +83,7 @@ export const autocompleteHandler = async (
     }));
 };
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the location.
     const location = interaction.options.get("location")!.value as string;
 

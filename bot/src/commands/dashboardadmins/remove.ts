@@ -2,7 +2,7 @@ import { client, dashboardAdmins } from "database";
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import { and, eq } from "drizzle-orm";
 import error from "../../views/layouts/error";
@@ -19,7 +19,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the user.
     const user = interaction.options.getUser("user", true);
 

@@ -1,4 +1,8 @@
-import type { APIEmbed, CommandInteraction } from "discord.js";
+import {
+    MessageFlags,
+    type APIEmbed,
+    type ChatInputCommandInteraction,
+} from "discord.js";
 
 export const description = "Returns information about the bot.";
 
@@ -8,7 +12,7 @@ Our aim with Cyno is to make a very easy to use bot which people want to interac
 
 Want to invite Cyno to your own guild? You can use the invite link [here](https://cyno.lol/invite).`;
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     const embed: APIEmbed = {
         color: 0x00ff00,
         description: embedDescription,
@@ -20,5 +24,8 @@ kelwing`,
             },
         ],
     };
-    return interaction.reply({ embeds: [embed], ephemeral: true });
+    return interaction.reply({
+        embeds: [embed],
+        flags: MessageFlags.Ephemeral,
+    });
 }

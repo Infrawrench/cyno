@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import addMany from "../queries/financial/addMany";
 import success from "../views/layouts/success";
@@ -27,7 +27,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the role ID and amount.
     const roleId = interaction.options.get("role")!.value as string;
     const amount = interaction.options.get("amount")!.value as number;

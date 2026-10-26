@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
     type PermissionResolvable,
 } from "discord.js";
 import durationParse from "../utils/durationParse";
@@ -34,7 +34,7 @@ export const defaultPermissions: PermissionResolvable = [
     "ManageMessages",
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the message and time.
     const message = interaction.options.get("message")!.value as string;
     const duration = durationParse(

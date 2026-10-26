@@ -1,4 +1,9 @@
-import type { Client, CommandInteraction, EmbedField, Role } from "discord.js";
+import type {
+    Client,
+    ChatInputCommandInteraction,
+    EmbedField,
+    Role,
+} from "discord.js";
 import { useState } from "react";
 import { client, guilds, roleShop } from "database";
 import { renderManager } from "../state";
@@ -153,7 +158,7 @@ const RoleShop = ({
 
 export const description = "Lists all roles for sale and lets you buy them.";
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get interaction information.
     const roles = interaction.guild!.roles.cache;
     const gid = BigInt(interaction.guildId!);

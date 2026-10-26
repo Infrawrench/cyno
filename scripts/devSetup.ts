@@ -66,13 +66,10 @@ Also make sure to turn on the members intent.
     const token = await rl.question("What is the Discord token: ");
 
     console.log(`
-Ok great! Now open uploadthing and go to your project then API Keys. Click the eye and then copy each bit as needed.
+Ok great! Now open uploadthing and go to your project then API Keys. Copy the token from the V7 tab.
 `);
-    const utSecret = await rl.question(
-        "What is the uploadthing secret (the bit after UPLOADTHING_SECRET=): ",
-    );
-    const utAppId = await rl.question(
-        "What is the uploadthing app ID (the bit after UPLOADTHING_APP_ID=): ",
+    const utToken = await rl.question(
+        "What is the uploadthing token (the bit after UPLOADTHING_TOKEN=): ",
     );
 
     const envFile = `DISCORD_REDIRECT_URI=http://localhost:5100/api/auth/callback
@@ -80,8 +77,7 @@ DATABASE_URL=file:../database.db
 DISCORD_CLIENT_ID=${clientId}
 DISCORD_CLIENT_SECRET=${clientSecret}
 TOKEN=${token}
-UPLOADTHING_SECRET=${utSecret}
-UPLOADTHING_APP_ID=${utAppId}
+UPLOADTHING_TOKEN=${utToken}
 `;
     writeFileSync(join(root, ".env"), envFile);
     console.log(`

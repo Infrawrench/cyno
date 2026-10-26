@@ -7,9 +7,7 @@ type ChannelReminderJobData = {
     message: string;
 };
 
-export default class ChannelReminderJob
-    implements ScheduledJob<ChannelReminderJobData>
-{
+export default class ChannelReminderJob implements ScheduledJob<ChannelReminderJobData> {
     constructor(private data: ChannelReminderJobData) {}
 
     toJson() {
@@ -21,7 +19,7 @@ export default class ChannelReminderJob
             await globalState
                 .client!.channels.fetch(this.data.channelId)
                 .then(async (channel) => {
-                    if (!channel?.isTextBased()) return;
+                    if (!channel?.isSendable()) return;
                     await channel.send(
                         `${this.data.message} (notification scheduled by <@${this.data.userId}>)`,
                     );

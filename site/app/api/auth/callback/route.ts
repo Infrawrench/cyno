@@ -11,7 +11,8 @@ export async function GET(req: NextRequest) {
 
     // Check if the state is valid.
     if (
-        cookies().get("state")?.value !== req.nextUrl.searchParams.get("state")
+        (await cookies()).get("state")?.value !==
+        req.nextUrl.searchParams.get("state")
     ) {
         // Redirect the user to the homepage.
         return NextResponse.redirect(`${origin}/`);

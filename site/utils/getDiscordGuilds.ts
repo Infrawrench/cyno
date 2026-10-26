@@ -9,7 +9,7 @@ export type Guild = {
     icon: string | null;
 };
 
-export default async function (): Promise<Guild[] | null> {
+export default async function getDiscordGuilds(): Promise<Guild[] | null> {
     const token = await getDiscordToken();
     if (!token) return null;
 

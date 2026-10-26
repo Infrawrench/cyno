@@ -62,7 +62,7 @@ export async function setEncryptedCookie(
     cookie?: Partial<ResponseCookie>,
     jar?: ResponseCookies,
 ) {
-    (jar || cookies()).set(
+    (jar || (await cookies())).set(
         cookieName,
         await encrypt(await unwrapKey(), value),
         cookie,
@@ -75,7 +75,7 @@ export async function getEncryptedCookie(
     jar?: ResponseCookies,
 ) {
     const key = await unwrapKey();
-    const value = (jar || cookies()).get(cookieName);
+    const value = (jar || (await cookies())).get(cookieName);
     if (!value) return;
     try {
         return await decrypt(key, value.value);
@@ -91,7 +91,7 @@ export async function setSignedCookie(
     cookie?: Partial<ResponseCookie>,
     jar?: ResponseCookies,
 ) {
-    (jar || cookies()).set(
+    (jar || (await cookies())).set(
         cookieName,
         await sign(await unwrapKey(), cookieName, value),
         cookie,
@@ -104,7 +104,7 @@ export async function getSignedCookie(
     jar?: ResponseCookies,
 ) {
     const key = await unwrapKey();
-    const value = (jar || cookies()).get(cookieName);
+    const value = (jar || (await cookies())).get(cookieName);
     if (!value) return;
 
     const [_, data] = value.value.split(".", 2);

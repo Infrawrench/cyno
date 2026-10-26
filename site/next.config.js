@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        serverComponentsExternalPackages: ["drizzle-orm"],
-    },
+    serverExternalPackages: ["drizzle-orm"],
 };
 
 module.exports = nextConfig;

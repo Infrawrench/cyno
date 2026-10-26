@@ -1,5 +1,5 @@
 import {
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
     type APIApplicationCommandBasicOption,
     ApplicationCommandOptionType,
 } from "discord.js";
@@ -57,7 +57,7 @@ export const options: APIApplicationCommandBasicOption[] = [
 
 const wheelFormat = `**『${wheelRatios[0].Ratio}』 『${wheelRatios[1].Ratio}』 『${wheelRatios[2].Ratio}』\n\n『${wheelRatios[3].Ratio}』 ** EMOJI ** 『${wheelRatios[4].Ratio}』\n\n『${wheelRatios[5].Ratio}』 『${wheelRatios[6].Ratio}』 『${wheelRatios[7].Ratio}』**`;
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the amount.
     const amount = interaction.options.get("amount")!.value as number;
 

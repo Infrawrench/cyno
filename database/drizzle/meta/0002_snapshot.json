@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "4ebf8731-65c7-4ec0-97d6-2f957bb8d642",
-  "prevId": "48ec6953-790c-4873-8385-aed2f1ac7045",
   "tables": {
     "allowed_drop_channels": {
       "name": "allowed_drop_channels",
@@ -50,19 +48,20 @@
         "allowed_drop_channels_guild_id_guilds_guild_id_fk": {
           "name": "allowed_drop_channels_guild_id_guilds_guild_id_fk",
           "tableFrom": "allowed_drop_channels",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "birthdays": {
       "name": "birthdays",
@@ -92,7 +91,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "currency_drop": {
       "name": "currency_drop",
@@ -132,19 +132,20 @@
         "currency_drop_guild_id_guilds_guild_id_fk": {
           "name": "currency_drop_guild_id_guilds_guild_id_fk",
           "tableFrom": "currency_drop",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "dashboard_admins": {
       "name": "dashboard_admins",
@@ -178,19 +179,20 @@
         "dashboard_admins_guild_id_guilds_guild_id_fk": {
           "name": "dashboard_admins_guild_id_guilds_guild_id_fk",
           "tableFrom": "dashboard_admins",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "experience_points": {
       "name": "experience_points",
@@ -269,19 +271,20 @@
         "experience_points_guild_id_guilds_guild_id_fk": {
           "name": "experience_points_guild_id_guilds_guild_id_fk",
           "tableFrom": "experience_points",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guild_birthday_config": {
       "name": "guild_birthday_config",
@@ -329,19 +332,20 @@
         "guild_birthday_config_guild_id_guilds_guild_id_fk": {
           "name": "guild_birthday_config_guild_id_guilds_guild_id_fk",
           "tableFrom": "guild_birthday_config",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guild_intervals": {
       "name": "guild_intervals",
@@ -401,7 +405,8 @@
       },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guild_timely_config": {
       "name": "guild_timely_config",
@@ -443,19 +448,20 @@
         "guild_timely_config_guild_id_guilds_guild_id_fk": {
           "name": "guild_timely_config_guild_id_guilds_guild_id_fk",
           "tableFrom": "guild_timely_config",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guild_timeouts": {
       "name": "guild_timeouts",
@@ -507,7 +513,8 @@
       },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guilds": {
       "name": "guilds",
@@ -641,7 +648,8 @@
       },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "last_guild_takeout": {
       "name": "last_guild_takeout",
@@ -666,19 +674,20 @@
         "last_guild_takeout_guild_id_guilds_guild_id_fk": {
           "name": "last_guild_takeout_guild_id_guilds_guild_id_fk",
           "tableFrom": "last_guild_takeout",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "level_blacklisted_channels": {
       "name": "level_blacklisted_channels",
@@ -711,19 +720,20 @@
         "level_blacklisted_channels_guild_id_guilds_guild_id_fk": {
           "name": "level_blacklisted_channels_guild_id_guilds_guild_id_fk",
           "tableFrom": "level_blacklisted_channels",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "level_roles": {
       "name": "level_roles",
@@ -778,19 +788,20 @@
         "level_roles_guild_id_guilds_guild_id_fk": {
           "name": "level_roles_guild_id_guilds_guild_id_fk",
           "tableFrom": "level_roles",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "role_shop": {
       "name": "role_shop",
@@ -838,19 +849,20 @@
         "role_shop_guild_id_guilds_guild_id_fk": {
           "name": "role_shop_guild_id_guilds_guild_id_fk",
           "tableFrom": "role_shop",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "shares": {
       "name": "shares",
@@ -935,19 +947,20 @@
         "shares_guild_id_guilds_guild_id_fk": {
           "name": "shares_guild_id_guilds_guild_id_fk",
           "tableFrom": "shares",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "time_locations": {
       "name": "time_locations",
@@ -970,7 +983,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "timely_collections": {
       "name": "timely_collections",
@@ -1018,19 +1032,20 @@
         "timely_collections_guild_id_guilds_guild_id_fk": {
           "name": "timely_collections_guild_id_guilds_guild_id_fk",
           "tableFrom": "timely_collections",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "transactions": {
       "name": "transactions",
@@ -1101,19 +1116,20 @@
         "transactions_guild_id_guilds_guild_id_fk": {
           "name": "transactions_guild_id_guilds_guild_id_fk",
           "tableFrom": "transactions",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "wallet": {
       "name": "wallet",
@@ -1169,25 +1185,28 @@
         "wallet_guild_id_guilds_guild_id_fk": {
           "name": "wallet_guild_id_guilds_guild_id_fk",
           "tableFrom": "wallet",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "guild_id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     }
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "4ebf8731-65c7-4ec0-97d6-2f957bb8d642",
+  "prevId": "48ec6953-790c-4873-8385-aed2f1ac7045",
+  "views": {}
 }

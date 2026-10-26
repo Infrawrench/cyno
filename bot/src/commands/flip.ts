@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import take from "../queries/financial/take";
 import { getGuild } from "../queries/guild";
@@ -31,7 +31,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Take the money.
     const gid = BigInt(interaction.guildId!);
     const amount = interaction.options.get("amount")!.value as number;

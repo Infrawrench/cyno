@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import { notAMember } from "../../views/errors";
 import { client, dashboardAdmins } from "database";
@@ -19,7 +19,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Check the user is a member.
     const member = interaction.options.getMember("member");
     if (!member) return notAMember(interaction);

@@ -16,7 +16,7 @@ for (const dockerfile of dockerfiles) {
     a.shift();
     await writeFile(
         fp,
-        `FROM node:${version.substring(1)}-bookworm
+        `FROM node:${version.substring(1)}-trixie
 ${a.join("\n")}`,
     );
 }

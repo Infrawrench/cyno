@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "uploadthing/tw/v4";
+@source "../../node_modules/@uploadthing/react/dist";
+
+/*
+  Tailwind v4 changed the default button cursor to `default`. Keep the v3
+  behaviour of showing a pointer on enabled buttons.
+*/
+@layer base {
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
 
 @media (prefers-color-scheme: dark) {
     .spinner-dark-handler > span:nth-child(1) {

@@ -2,7 +2,7 @@ import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
     type PermissionResolvable,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import { getGuild } from "../queries/guild";
 import { client } from "database";
@@ -27,7 +27,7 @@ export const defaultPermissions: PermissionResolvable = [
     "ManageMessages",
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     const uid = BigInt(interaction.options.getUser("user")!.id);
     const guild = await getGuild(BigInt(interaction.guildId!));
 

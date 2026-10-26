@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import * as errors from "../views/errors";
 import { getGuild } from "../queries/guild";
@@ -26,7 +26,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     const user = interaction.options.getUser("recipient", true);
     const member = interaction.options.getMember("recipient");
     if (!member) return errors.notAMember(interaction);

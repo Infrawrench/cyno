@@ -194,15 +194,12 @@ You should set the redirect URI to https://${hostname}/api/auth/callback and tur
 
     // Log that we are going to setup uploadthing.
     console.log(`
-Now open uploadthing and go to your project then API Keys. Click the eye and then copy each bit as needed.
+Now open uploadthing and go to your project then API Keys. Copy the token from the V7 tab.
 `);
-    const utSecret = await noBlankResponse(
-        "What is the uploadthing secret (the bit after UPLOADTHING_SECRET=): ",
+    const utToken = await noBlankResponse(
+        "What is the uploadthing token (the bit after UPLOADTHING_TOKEN=): ",
     );
-    const utAppId = await noBlankResponse(
-        "What is the uploadthing app ID (the bit after UPLOADTHING_APP_ID=): ",
-    );
-    env.push(`UPLOADTHING_SECRET=${utSecret}`, `UPLOADTHING_APP_ID=${utAppId}`);
+    env.push(`UPLOADTHING_TOKEN=${utToken}`);
 
     // Add the cookie private key.
     const data = randomBytes(32).toString("hex");

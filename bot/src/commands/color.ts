@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
 } from "discord.js";
 import error from "../views/layouts/error";
 import * as PImage from "pureimage";
@@ -34,7 +34,7 @@ class WriteableBuffer extends Writable {
     }
 }
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the color.
     const color = parse(interaction.options.get("color")!.value as string)
         .values as [number, number, number] | [];

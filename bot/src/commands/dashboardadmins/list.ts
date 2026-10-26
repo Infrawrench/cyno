@@ -1,9 +1,9 @@
 import { client } from "database";
-import type { CommandInteraction } from "discord.js";
+import { MessageFlags, type ChatInputCommandInteraction } from "discord.js";
 
 export const description = "List the dashboard administrators.";
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Get the dashboard admins.
     const res = await client.query.dashboardAdmins
         .findMany({
@@ -22,7 +22,7 @@ export async function run(interaction: CommandInteraction) {
 
     // Return the embed.
     return interaction.reply({
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
         embeds: [
             {
                 title: "Dashboard Administrators",

@@ -1,7 +1,7 @@
 import {
     ApplicationCommandOptionType,
     type APIApplicationCommandBasicOption,
-    type CommandInteraction,
+    type ChatInputCommandInteraction,
     type PermissionResolvable,
 } from "discord.js";
 import { notAMember } from "../views/errors";
@@ -32,7 +32,7 @@ export const options: APIApplicationCommandBasicOption[] = [
     },
 ];
 
-export async function run(interaction: CommandInteraction) {
+export async function run(interaction: ChatInputCommandInteraction) {
     // Make sure this is a member.
     const member = interaction.options.getMember("member");
     if (!member) return notAMember(interaction);
