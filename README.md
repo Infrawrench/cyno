@@ -50,7 +50,7 @@ This is the approach you probably want to take if you just need a single Discord
 From here, run the following commands and follow the setup wizard to setup your server:
 
 ```sh
-git clone https://github.com/webscalesoftwareltd/cyno2.git /opt/cyno
+git clone https://github.com/Infrawrench/cyno.git /opt/cyno
 cd /opt/cyno
 bun scripts/serverSetup.ts
 ```

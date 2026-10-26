@@ -84,7 +84,7 @@ export default async function Home() {
                 <p className="mb-4">
                     Cyno is a{" "}
                     <a
-                        href="https://github.com/webscalesoftwareltd/cyno2"
+                        href="https://github.com/Infrawrench/cyno"
                         className="text-blue-900 dark:text-blue-300"
                     >
                         open source and MIT licensed

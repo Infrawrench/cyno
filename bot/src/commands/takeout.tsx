@@ -49,7 +49,7 @@ export async function run(interaction: ChatInputCommandInteraction) {
     await interaction.editReply({
         content: `**Your database takeout is ready!**
 
-You can use the attached file by downloading [a copy of Cyno](https://github.com/WebScaleSoftwareLtd/Cyno2) and setting this as the database.
+You can use the attached file by downloading [a copy of Cyno](https://github.com/Infrawrench/cyno) and setting this as the database.
 `,
         files: [
             {
