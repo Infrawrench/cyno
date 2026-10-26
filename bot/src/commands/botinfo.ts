@@ -8,9 +8,7 @@ export const description = "Returns information about the bot.";
 
 const embedDescription = `**Welcome to Cyno!**
 
-Our aim with Cyno is to make a very easy to use bot which people want to interact with. I hope you are enjoying it.
-
-Want to invite Cyno to your own guild? You can use the invite link [here](https://cyno.lol/invite).`;
+Our aim with Cyno is to make a very easy to use bot which people want to interact with. I hope you are enjoying it.`;
 
 export async function run(interaction: ChatInputCommandInteraction) {
     const embed: APIEmbed = {
