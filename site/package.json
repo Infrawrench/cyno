@@ -6,7 +6,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "eslint .",
-        "tsc": "tsc --noEmit"
+        "tsc": "next typegen && tsc --noEmit"
     },
     "dependencies": {
         "@uploadthing/react": "^7.3.3",
